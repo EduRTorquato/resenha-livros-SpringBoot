@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Size;
 
 import com.sun.istack.NotNull;
 
@@ -18,17 +17,15 @@ public class Livro {
 	private long livroId;
 	
 	@NotNull
-	@Size(min = 10, max = 30)
 	private String nome;
 	
 	@NotNull
-	@Size(min = 10, max = 2500)
 	private String resenha;
 	
 	private String autor;
 	
 	@NotNull
-	private Date dataLeitura = new java.sql.Date(System.currentTimeMillis());
+	private Date dataLeitura;
 
 	public long getLivroId() {
 		return livroId;
