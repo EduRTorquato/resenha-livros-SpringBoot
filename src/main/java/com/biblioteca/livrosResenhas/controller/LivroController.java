@@ -35,10 +35,6 @@ public class LivroController {
 		return livroR.findByNome(nome).map(livro -> ResponseEntity.ok(livro))
 				.orElse(ResponseEntity.notFound().build());
 	}
-	@GetMapping("/autor/{autor}")
-	public ResponseEntity<List<Livro>> GetByAutor(@PathVariable String autor){
-		return ResponseEntity.ok(livroR.findAllByAutor(autor));
-	}
 	@GetMapping("/{id}")
 	public ResponseEntity<Optional<Livro>> GetById(@PathVariable Long id){
 		return ResponseEntity.ok(livroR.findById(id));

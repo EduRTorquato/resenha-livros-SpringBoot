@@ -6,7 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -22,10 +25,32 @@ public class Livro {
 	@NotNull
 	private String resenha;
 	
-	private String autor;
-	
 	@NotNull
-	private Date dataLeitura;
+	private Date dataInicioLeitura;
+	
+	private Date dataFinalLeitura;
+	
+	@ManyToOne()
+	@JsonIgnoreProperties("livro")
+	private Autor autor;
+	
+	
+
+	public Date getDataInicioLeitura() {
+		return dataInicioLeitura;
+	}
+
+	public void setDataInicioLeitura(Date dataInicioLeitura) {
+		this.dataInicioLeitura = dataInicioLeitura;
+	}
+
+	public Date getDataFinalLeitura() {
+		return dataFinalLeitura;
+	}
+
+	public void setDataFinalLeitura(Date dataFinalLeitura) {
+		this.dataFinalLeitura = dataFinalLeitura;
+	}
 
 	public long getLivroId() {
 		return livroId;
@@ -37,14 +62,6 @@ public class Livro {
 
 	public String getNome() {
 		return nome;
-	}
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
 	}
 
 	public void setNome(String nome) {
@@ -60,11 +77,19 @@ public class Livro {
 	}
 
 	public Date getDataLeitura() {
-		return dataLeitura;
+		return dataInicioLeitura;
 	}
 
 	public void setDataLeitura(Date dataLeitura) {
-		this.dataLeitura = dataLeitura;
+		this.dataInicioLeitura = dataLeitura;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
 	
 }

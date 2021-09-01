@@ -12,7 +12,6 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
 	
 	public List<Livro> findAll();
 	public Optional<Livro> findByNome(String nome);
-	public List<Livro> findAllByAutor(String autor);
 	public Optional<Livro> findById(Long id);
 	
 }
