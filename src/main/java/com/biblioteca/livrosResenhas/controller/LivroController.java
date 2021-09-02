@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.biblioteca.livrosResenhas.model.Livro;
 import com.biblioteca.livrosResenhas.repository.LivroRepository;
 
+
 @RestController
 @RequestMapping("/livros")
 @CrossOrigin("*")
 public class LivroController {
-
+		
 	@Autowired
 	private LivroRepository livroR;
 	

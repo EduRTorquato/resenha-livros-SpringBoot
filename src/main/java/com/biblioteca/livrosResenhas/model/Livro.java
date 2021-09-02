@@ -7,14 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
 public class Livro {
+		
 
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long livroId;
@@ -30,11 +32,21 @@ public class Livro {
 	
 	private Date dataFinalLeitura;
 	
+	public Long numPag;	
+	
+	public Long numTotal;
+	
 	@ManyToOne()
 	@JsonIgnoreProperties("livro")
 	private Autor autor;
-	
-	
+
+	public Long getNumPag() {
+		return numPag;
+	}
+
+	public void setNumPag(Long numPag) {
+		this.numPag = numPag;
+	}
 
 	public Date getDataInicioLeitura() {
 		return dataInicioLeitura;
@@ -76,13 +88,6 @@ public class Livro {
 		this.resenha = resenha;
 	}
 
-	public Date getDataLeitura() {
-		return dataInicioLeitura;
-	}
-
-	public void setDataLeitura(Date dataLeitura) {
-		this.dataInicioLeitura = dataLeitura;
-	}
 
 	public Autor getAutor() {
 		return autor;

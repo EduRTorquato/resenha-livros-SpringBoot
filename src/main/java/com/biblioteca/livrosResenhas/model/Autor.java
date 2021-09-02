@@ -17,13 +17,13 @@ public class Autor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long autorId;
 	
 	@NotNull
 	private String nomeAutor;
 	
 	@OneToMany(mappedBy = "autor")
-	@JsonIgnoreProperties()
+	@JsonIgnoreProperties("autor")
 	private List<Livro> livro;
 	
 	private String origemAutor;
@@ -33,11 +33,11 @@ public class Autor {
 	private Date dataFalesc;
 
 	public long getId() {
-		return id;
+		return autorId;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.autorId = id;
 	}
 
 	public String getNomeAutor() {
